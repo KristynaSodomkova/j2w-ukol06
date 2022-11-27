@@ -86,7 +86,7 @@ public class Vizitka {
         return firma;
     }
 
-    public void Firma(String firma) {
+    public void setFirma(String firma) {
         this.firma = firma;
     }
 
