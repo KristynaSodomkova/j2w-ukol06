@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -50,13 +51,13 @@ public class VizitkaController {
     }
 
     @GetMapping("/nova")
-    public Object nova() {
+    public Object novy() {
         return new ModelAndView("formular")
                 .addObject("vizitka", new Vizitka());
     }
 
     @PostMapping("/nova")
-    public Object pridat(@ModelAttribute("vizitka") @Valid Vizitka vizitka, BindingResult bindingResult) {
+    public Object nova(@ModelAttribute("vizitka") @Valid Vizitka vizitka, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "formular";
         }

@@ -21,7 +21,7 @@ public class Vizitka {
 
     @Length(max = 100)
     @NotBlank
-    private String cele_jmeno;
+    private String celeJmeno;
 
     @Length(max = 100)
     @NotBlank
@@ -54,9 +54,9 @@ public class Vizitka {
     public Vizitka() {
     }
 
-    public Vizitka(Long id, String jmeno, String firma, String ulice, String obec, String psc, String email, String telefon, String web) {
+    public Vizitka(Long id, String celeJmeno, String firma, String ulice, String obec, String psc, String email, String telefon, String web) {
         this.id = id;
-        this.cele_jmeno = jmeno;
+        this.celeJmeno = celeJmeno;
         this.firma = firma;
         this.ulice = ulice;
         this.obec = obec;
@@ -74,12 +74,12 @@ public class Vizitka {
         this.id = id;
     }
 
-    public String getJmeno() {
-        return cele_jmeno;
+    public String getCeleJmeno() {
+        return celeJmeno;
     }
 
-    public void setJmeno(String jmeno) {
-        this.cele_jmeno = jmeno;
+    public void setCeleJmeno(String celeJmeno) {
+        this.celeJmeno = celeJmeno;
     }
 
     public String getFirma() {
@@ -136,5 +136,9 @@ public class Vizitka {
 
     public void setWeb(String web) {
         this.web = web;
+    }
+
+    public String getCelaAdresa() {
+        return ulice + ", " + psc + " " + obec;
     }
 }

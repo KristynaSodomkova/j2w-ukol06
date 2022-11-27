@@ -1,5 +1,5 @@
 [#ftl]
-[@c.page title="${vizitka.jmeno!}"]
+[@c.page]
     <div class="detail">
         [@form.form class="vizitka" method="post" bind="vizitka"]
             [@form.input name="jmeno" label="Jméno" maxlength="100" required="required" /]

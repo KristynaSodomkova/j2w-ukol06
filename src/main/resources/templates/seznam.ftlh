@@ -1,24 +1,35 @@
 [#ftl]
-[@c.page title="Seznam vizitek"]
-     [#list vizitky]
+[@c.page]
+
         <div class="seznam">
-            <a href="/detail">
+         [#list vizitky as vizitka]
+            <a href="${vizitka.id}">
                 <div class="vizitka">
-                    <div class="jmeno">${vizitka.jmeno}</div>
+                    <div class="jmeno">${vizitka.celeJmeno}</div>
                     <div class="firma">${vizitka.firma}</div>
                     <div class="udaje">
                         <div class="adresa">
                             <div>${vizitka.ulice}</div>
-                            <div><span>11000</span> <span>Praha 1</span></div>
+                            <div><span>${vizitka.psc}${vizitka.obec}</span></div>
                         </div>
                         <div class="kontakty">
-                            <div><i class="las la-at"></i> <span>${vizitka.email}</span></div>
-                            <div><i class="las la-phone-alt"></i> <span>${vizitka.telefon}</span></div>
-                            <div><i class="las la-globe"></i> <span>${vizitka.web}</span></div>
+                            <div>[#if vizitka.email?exists]
+                                <i class="las la-at"></i> <span>${vizitka.email}</span>
+                                [/#if]
+                                </div>
+                            <div>[#if vizitka.telefon?exists]
+                                <i class="las la-phone-alt"></i> <span>${vizitka.telefon}</span>
+                                [/#if]
+                            </div>
+                            <div>[#if vizitka.web?exists]
+                                <i class="las la-globe"></i> <span>${vizitka.web}</span>
+                                [/#if]
+                            </div>
                         </div>
                     </div>
                 </div>
             </a>
+
      [#else]
          <p class="fst-italic">Seznam vizitek je prázdný.</p>
      [/#list]
